@@ -353,6 +353,7 @@ fun! HtmlIndentGet(lnum)
             if s:jsindent == ''
               return cindent(a:lnum)
             else
+              let b:hi_indent = {'blocklnr': searchpair(js, '', jse, 'nWb')} " hack for 'pangloss/vim-javascript'
               execute 'let ind = ' . s:jsindent
               return ind
             endif
